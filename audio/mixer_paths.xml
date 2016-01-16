@@ -25,8 +25,8 @@
 		<ctl name="LINEOUT2 Volume" value="13" />
 		<ctl name="LINEOUT3 Volume" value="13" />
 		<ctl name="LINEOUT4 Volume" value="13" />
-		<ctl name="HPHL Volume" value="0" />
-		<ctl name="HPHR Volume" value="0" />
+		<ctl name="HPHL Volume" value="20" />
+		<ctl name="HPHR Volume" value="20" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 		<ctl name="RX3 Digital Volume" value="84" />
@@ -134,8 +134,11 @@
 		<ctl name="CLASS_H_DSM MUX" value="ZERO" />
 		<ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia4" value="0" />
 		<ctl name="HDMI Mixer MultiMedia4" value="0" />
-		<ctl name="SPK out" value="Disable" />
-		<ctl name="MultiMedia2 Mixer QUAT_MI2S_TX" value="0" />
+		<ctl name="AIF3_CAP Mixer SLIM TX3" value="0" />
+		<ctl name="AIF3_CAP Mixer SLIM TX5" value="0" />
+		<ctl name="SLIM RX7 MUX" value="ZERO" />
+		<ctl name="SLIM RX6 MUX" value="ZERO" />
+
 		<!-- usb headset -->
 		<ctl name="AFE_PCM_RX Audio Mixer MultiMedia1" value="0" />
 		<ctl name="MultiMedia1 Mixer AFE_PCM_TX" value="0" />
@@ -257,7 +260,7 @@
 		<ctl name="IIR1 Enable Band3" value="0" />
 		<ctl name="IIR1 Enable Band4" value="0" />
 		<ctl name="IIR1 Enable Band5" value="0" />
-		<ctl name="IIR1 INP1 Volume" value="0" />
+		<ctl name="IIR1 INP1 Volume" value="62" />
 		<!-- IIR/voice anc end -->
 		<!-- anc handset -->
 		<ctl name="ANC Slot" value="0" />
@@ -274,13 +277,6 @@
 		<!-- ssr qmic -->
 		<ctl name="AIF1_CAP Mixer SLIM TX10" value="0" />
 		<!-- ssr qmic end-->
-		<ctl name="AIF2_CAP Mixer SLIM TX2" value="0" />
-		<ctl name="AIF2_CAP Mixer SLIM TX4" value="0" />
-		<ctl name="AIF2_CAP Mixer SLIM TX5" value="0" />
-		<ctl name="AIF2_CAP Mixer SLIM TX6" value="0" />
-		<ctl name="AIF2_CAP Mixer SLIM TX7" value="0" />
-		<ctl name="AIF2_CAP Mixer SLIM TX8" value="0" />
-		<ctl name="AIF2_CAP Mixer SLIM TX9" value="0" />
 		<!-- audio record compress-->
 		<ctl name="MultiMedia8 Mixer SLIM_0_TX" value="0" />
 		<ctl name="MultiMedia8 Mixer AUX_PCM_UL_TX" value="0" />
@@ -356,7 +352,12 @@
 		<ctl name="AUX_PCM_RX Audio Mixer MultiMedia5" value="1" />
 	</path>
 
-	<!-- low latency -->
+	<path name="low-latency-playback speaker-and-bt-sco">
+		<path name="low-latency-playback bt-sco" />
+		<path name="low-latency-playback" />
+	</path>
+
+	<!-- low latency(JAM) -->
 	<path name="jam-framework-playback">
 		<ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia10" value="1" />
 	</path>
@@ -401,6 +402,7 @@
 	<path name="voice-call">
 		<ctl name="STUB_RX Mixer Voice Stub" value="1" />
 		<ctl name="Voice Stub Tx Mixer STUB_TX_HL" value="1" />
+		<ctl name="Voice Stub Tx Mixer STUB_1_TX_HL" value="1" />
 	</path>
 
 	<path name="voice-call bt-sco">
@@ -411,6 +413,9 @@
 		<ctl name="AUX_PCM_RX_Voice Mixer Voice Stub" value="1" />
 		<ctl name="SLIMBUS_1_RX Port Mixer AUX_PCM_UL_TX" value="1" />
 		<ctl name="AUX_PCM_RX Port Mixer SLIM_1_TX" value="1" />
+		<ctl name="SLIM_3_RX Channels" value="One" />
+		<ctl name="SLIMBUS_3_RX_Voice Mixer Voice Stub" value="1" />
+		<ctl name="SLIMBUS_3_RX Port Mixer AUX_PCM_RX" value="1" />
 	</path>
 
 	<path name="voip-call">
@@ -423,6 +428,7 @@
 		<ctl name="Voip_Tx Mixer AUX_PCM_TX_Voip" value="1" />
 	</path>
 
+	<!-- incall recording -->
 	<path name="incall-rec-uplink">
 		<ctl name="MultiMedia1 Mixer SLIM_6_TX" value="1" />
 	</path>
@@ -446,50 +452,27 @@
 	<!-- RX part -->
 	<path name="rcv">
 		<ctl name="SLIM RX1 MUX" value="AIF1_PB" />
-		<ctl name="SLIM_0_RX Channels" value="One" />
-		<ctl name="RX1 MIX1 INP1" value="RX1" />
-		<ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
-		<ctl name="DAC1 Switch" value="1" />
-	</path>
-
-	<path name="call-rcv">
-		<ctl name="SLIM RX1 MUX" value="AIF1_PB" />
 		<ctl name="SLIM RX6 MUX" value="AIF2_PB" />
 		<ctl name="SLIM_0_RX Channels" value="One" />
 		<ctl name="RX1 MIX1 INP1" value="RX1" />
 		<ctl name="RX1 MIX1 INP2" value="RX6" />
+		<ctl name="AIF3_CAP Mixer SLIM TX3" value="1" />
+		<ctl name="SLIM TX3 MUX" value="RMIX1" />
 		<ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
 		<ctl name="DAC1 Switch" value="1" />
 	</path>
 
 	<path name="spk">
 		<ctl name="SLIM RX1 MUX" value="AIF1_PB" />
-		<ctl name="RX5 MIX1 INP1" value="RX1" />
-		<ctl name="RDAC7 MUX" value="DEM5_INV" />
-		<ctl name="SPK out" value="Enable" />
-		<ctl name="MultiMedia2 Mixer QUAT_MI2S_TX" value="1" />
-	</path>
-
-	<path name="call-spk">
-		<ctl name="SLIM RX1 MUX" value="AIF1_PB" />
 		<ctl name="SLIM RX6 MUX" value="AIF2_PB" />
-		<ctl name="RX5 MIX1 INP1" value="RX1" />
-		<ctl name="RX5 MIX1 INP2" value="RX6" />
-		<ctl name="RDAC7 MUX" value="DEM5_INV" />
-		<ctl name="SPK out" value="Enable" />
+		<ctl name="AIF3_CAP Mixer SLIM TX3" value="1"/>
+		<ctl name="SLIM TX3 MUX" value="RMIX7" />
+		<ctl name="RX7 MIX1 INP1" value="RX1" />
+		<ctl name="RX7 MIX1 INP2" value="RX6" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="ear">
-		<ctl name="SLIM RX1 MUX" value="AIF1_PB" />
-		<ctl name="SLIM RX2 MUX" value="AIF1_PB" />
-		<ctl name="SLIM_0_RX Channels" value="Two" />
-		<ctl name="RX1 MIX1 INP1" value="RX1" />
-		<ctl name="RX2 MIX1 INP1" value="RX2" />
-		<ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
-		<ctl name="HPHL DAC Switch" value="1" />
-	</path>
-
-	<path name="call-ear">
 		<ctl name="SLIM RX1 MUX" value="AIF1_PB" />
 		<ctl name="SLIM RX6 MUX" value="AIF2_PB" />
 		<ctl name="SLIM RX2 MUX" value="AIF1_PB" />
@@ -499,8 +482,13 @@
 		<ctl name="RX1 MIX1 INP2" value="RX6" />
 		<ctl name="RX2 MIX1 INP1" value="RX2" />
 		<ctl name="RX2 MIX1 INP2" value="RX7" />
+		<ctl name="AIF3_CAP Mixer SLIM TX3" value="1" />
+		<ctl name="AIF3_CAP Mixer SLIM TX5" value="1" />
+		<ctl name="SLIM TX3 MUX" value="RMIX1" />
+		<ctl name="SLIM TX5 MUX" value="RMIX2" />
 		<ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
 		<ctl name="HPHL DAC Switch" value="1" />
+		<ctl name="COMP1 Switch" value="1" />
 	</path>
 
 	<path name="lineout">
@@ -524,8 +512,6 @@
 		<ctl name="RDAC5 MUX" value="DEM3_INV" />
 		<ctl name="RDAC7 MUX" value="DEM5_INV" />
 		<ctl name="DAC1 Switch" value="1" />
-		<ctl name="SPK out" value="Enable" />
-		<ctl name="MultiMedia2 Mixer QUAT_MI2S_TX" value="1" />
 	</path>
 
 	<path name="spk-ear">
@@ -534,13 +520,16 @@
 		<ctl name="SLIM_0_RX Channels" value="Two" />
 		<ctl name="RX1 MIX1 INP1" value="RX1" />
 		<ctl name="RX2 MIX1 INP1" value="RX2" />
-		<ctl name="RX5 MIX1 INP1" value="RX1" />
-		<ctl name="RX5 MIX1 INP2" value="RX2" />
-		<ctl name="RDAC7 MUX" value="DEM5_INV" />
+		<ctl name="RX7 MIX1 INP1" value="RX1" />
+		<ctl name="RX7 MIX1 INP2" value="RX2" />
+		<ctl name="AIF3_CAP Mixer SLIM TX3" value="1" />
+		<ctl name="AIF3_CAP Mixer SLIM TX5" value="1" />
+		<ctl name="SLIM TX3 MUX" value="RMIX1" />
+		<ctl name="SLIM TX5 MUX" value="RMIX2" />
 		<ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
 		<ctl name="HPHL DAC Switch" value="1" />
-		<ctl name="SPK out" value="Enable" />
-		<ctl name="MultiMedia2 Mixer QUAT_MI2S_TX" value="1" />
+		<ctl name="COMP1 Switch" value="1" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<!-- TX part -->
@@ -614,45 +603,18 @@
 
 	<path name="main-sub-3rd-mic">
 		<ctl name="SLIM_0_TX Channels" value="Three" />
-		<ctl name="AIF2_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
+		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
 		<ctl name="SLIM TX7 MUX" value="DEC2" />
 		<ctl name="DEC2 MUX" value="DMIC2" />
+		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
 		<ctl name="SLIM TX8 MUX" value="DEC4" />
 		<ctl name="DEC4 MUX" value="DMIC4" />
+		<ctl name="AIF1_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM TX9 MUX" value="DEC6" />
 		<ctl name="DEC6 MUX" value="DMIC6" />
 	</path>
-	
-	<path name="sub-main-3rd-mic">
-		<ctl name="SLIM_0_TX Channels" value="Three" />
-		<ctl name="AIF2_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
-		<ctl name="SLIM TX7 MUX" value="DEC4" />
-		<ctl name="DEC4 MUX" value="DMIC4" />
-		<ctl name="SLIM TX8 MUX" value="DEC2" />
-		<ctl name="DEC2 MUX" value="DMIC2" />
-		<ctl name="SLIM TX9 MUX" value="DEC6" />
-		<ctl name="DEC6 MUX" value="DMIC6" />
-	</path>	
-
-	<path name="main-sub-3rd-mic-audience">
-		<ctl name="SLIM_0_TX Channels" value="One" />
-		<ctl name="AIF2_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
-		<ctl name="SLIM TX7 MUX" value="DEC2" />
-		<ctl name="DEC2 MUX" value="DMIC2" />
-		<ctl name="SLIM TX8 MUX" value="DEC4" />
-		<ctl name="DEC4 MUX" value="DMIC4" />
-		<ctl name="SLIM TX9 MUX" value="DEC6" />
-		<ctl name="DEC6 MUX" value="DMIC6" />
-	</path>
-
 	<path name="3rd-sub-main-mic">
-		<ctl name="SLIM_0_TX Channels" value="One" />
+		<ctl name="SLIM_0_TX Channels" value="Three" />
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
 		<ctl name="SLIM TX7 MUX" value="DEC6" />
 		<ctl name="DEC6 MUX" value="DMIC6" />
@@ -668,117 +630,108 @@
 	<!-- Call TX part -->
 	<path name="call-main-mic">
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX2" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM_0_TX Channels" value="One" />
 		<ctl name="SLIM TX7 MUX" value="DEC2" />
-		<ctl name="SLIM TX2 MUX" value="DEC2" />
+		<ctl name="SLIM TX9 MUX" value="DEC8" />
 		<ctl name="DEC2 MUX" value="DMIC2" />
+		<ctl name="DEC8 MUX" value="DMIC2" />
 	</path>
 
 	<path name="call-sub-mic">
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX4" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM_0_TX Channels" value="One" />
 		<ctl name="SLIM TX7 MUX" value="DEC4" />
-		<ctl name="SLIM TX4 MUX" value="DEC4" />
+		<ctl name="SLIM TX9 MUX" value="DEC9" />
 		<ctl name="DEC4 MUX" value="DMIC4" />
+		<ctl name="DEC9 MUX" value="DMIC4" />
 	</path>
 
 	<path name="call-3rd-mic">
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX6" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM_0_TX Channels" value="One" />
 		<ctl name="SLIM TX7 MUX" value="DEC6" />
-		<ctl name="SLIM TX6 MUX" value="DEC6" />
+		<ctl name="SLIM TX10 MUX" value="DEC9" />
 		<ctl name="DEC6 MUX" value="DMIC6" />
+		<ctl name="DEC9 MUX" value="DMIC4" />
 	</path>
 
 	<path name="call-ear-mic">
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX5" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM_0_TX Channels" value="One" />
 		<ctl name="SLIM TX7 MUX" value="DEC5" />
-		<ctl name="SLIM TX5 MUX" value="DEC5" />
+		<ctl name="SLIM TX9 MUX" value="DEC8" />
 		<ctl name="DEC5 MUX" value="ADC2" />
+		<ctl name="DEC8 MUX" value="ADC2" />
 	</path>
 
 	<path name="call-main-sub-mic">
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX2" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM_0_TX Channels" value="Two" />
 		<ctl name="SLIM TX7 MUX" value="DEC2" />
-		<ctl name="SLIM TX8 MUX" value="DEC4" />
-		<ctl name="SLIM TX2 MUX" value="DEC2" />
+		<ctl name="SLIM TX9 MUX" value="DEC8" />
 		<ctl name="DEC2 MUX" value="DMIC2" />
+		<ctl name="DEC8 MUX" value="DMIC2" />
+		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX10" value="1" />
+		<ctl name="SLIM TX8 MUX" value="DEC4" />
+		<ctl name="SLIM TX10 MUX" value="DEC9" />
 		<ctl name="DEC4 MUX" value="DMIC4" />
+		<ctl name="DEC9 MUX" value="DMIC4" />
 	</path>
 
 	<path name="call-sub-main-mic">
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX4" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM_0_TX Channels" value="Two" />
 		<ctl name="SLIM TX7 MUX" value="DEC4" />
-		<ctl name="SLIM TX8 MUX" value="DEC2" />
-		<ctl name="SLIM TX4 MUX" value="DEC4" />
+		<ctl name="SLIM TX9 MUX" value="DEC8" />
 		<ctl name="DEC4 MUX" value="DMIC4" />
+		<ctl name="DEC8 MUX" value="DMIC4" />
+		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX10" value="1" />
+		<ctl name="SLIM TX8 MUX" value="DEC2" />
+		<ctl name="SLIM TX10 MUX" value="DEC9" />
 		<ctl name="DEC2 MUX" value="DMIC2" />
+		<ctl name="DEC9 MUX" value="DMIC2" />
 	</path>
 
 	<path name="call-sub-3rd-mic">
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX4" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM_0_TX Channels" value="Two" />
 		<ctl name="SLIM TX7 MUX" value="DEC4" />
-		<ctl name="SLIM TX8 MUX" value="DEC6" />
-		<ctl name="SLIM TX4 MUX" value="DEC4" />
+		<ctl name="SLIM TX9 MUX" value="DEC8" />
 		<ctl name="DEC4 MUX" value="DMIC4" />
+		<ctl name="DEC8 MUX" value="DMIC4" />
+		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX10" value="1" />
+		<ctl name="SLIM TX8 MUX" value="DEC6" />
+		<ctl name="SLIM TX10 MUX" value="DEC9" />
 		<ctl name="DEC6 MUX" value="DMIC6" />
+		<ctl name="DEC9 MUX" value="DMIC6" />
 	</path>
 
 	<path name="call-main-3rd-mic">
 		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX2" value="1" />
+		<ctl name="AIF2_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="SLIM_0_TX Channels" value="Two" />
 		<ctl name="SLIM TX7 MUX" value="DEC2" />
-		<ctl name="SLIM TX8 MUX" value="DEC6" />
-		<ctl name="SLIM TX2 MUX" value="DEC2" />
+		<ctl name="SLIM TX9 MUX" value="DEC8" />
 		<ctl name="DEC2 MUX" value="DMIC2" />
-		<ctl name="DEC6 MUX" value="DMIC6" />
-	</path>
-	
-	<path name="call-main-sub-3rd-mic">
-		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+		<ctl name="DEC8 MUX" value="DMIC2" />
 		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF1_CAP Mixer SLIM TX9" value="1" />
 		<ctl name="AIF2_CAP Mixer SLIM TX10" value="1" />
-		<ctl name="SLIM_0_TX Channels" value="One" />
-		<ctl name="SLIM TX7 MUX" value="DEC2" />
-		<ctl name="SLIM TX8 MUX" value="DEC4" />
-		<ctl name="SLIM TX9 MUX" value="DEC6" />
-		<ctl name="SLIM TX10 MUX" value="DEC2" />
-		<ctl name="DEC2 MUX" value="DMIC2" />
-		<ctl name="DEC4 MUX" value="DMIC4" />
+		<ctl name="SLIM TX8 MUX" value="DEC6" />
+		<ctl name="SLIM TX10 MUX" value="DEC9" />
 		<ctl name="DEC6 MUX" value="DMIC6" />
+		<ctl name="DEC9 MUX" value="DMIC6" />
 	</path>
 
-	<path name="call-sub-main-3rd-mic">
-		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-		<ctl name="AIF1_CAP Mixer SLIM TX9" value="1" />
-		<ctl name="AIF2_CAP Mixer SLIM TX10" value="1" />
-		<ctl name="SLIM_0_TX Channels" value="One" />
-		<ctl name="SLIM TX7 MUX" value="DEC4" />
-		<ctl name="SLIM TX8 MUX" value="DEC2" />
-		<ctl name="SLIM TX9 MUX" value="DEC6" />
-		<ctl name="SLIM TX10 MUX" value="DEC4" />
-		<ctl name="DEC4 MUX" value="DMIC4" />
-		<ctl name="DEC2 MUX" value="DMIC2" />
-		<ctl name="DEC6 MUX" value="DMIC6" />
-	</path>
 	<!-- end of Device -->
 
 	<!-- ================================================================ -->
@@ -797,24 +750,24 @@
 
 	<path name="speaker">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="16" />
-		<ctl name="LINEOUT4 Volume" value="16" />
+		<ctl name="RX7 Digital Volume" value="79" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
-        <path name="speaker-reverse">
-                <path name="spk" />
-                <ctl name="RX5 Digital Volume" value="84" />
-                <ctl name="LINEOUT2 Volume" value="16" />
-                <ctl name="LINEOUT4 Volume" value="16" />
-        </path>
+	<path name="speaker-reverse">
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="79" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
+	</path>
 
 	<path name="headset">
 		<path name="ear" />
 		<ctl name="HPHL Volume" value="20" />
 		<ctl name="HPHR Volume" value="20" />
-		<ctl name="RX1 Digital Volume" value="80" />
-		<ctl name="RX2 Digital Volume" value="80" />
+		<ctl name="RX1 Digital Volume" value="77" />
+		<ctl name="RX2 Digital Volume" value="77" />
 		<ctl name="COMP1 Switch" value="1" />
 	</path>
 
@@ -829,53 +782,51 @@
 
 	<path name="speaker-and-headphones">
 		<path name="spk-ear" />
-		<ctl name="HPHL Volume" value="2" />
-		<ctl name="HPHR Volume" value="2" />
-		<ctl name="RX1 Digital Volume" value="84" />
-		<ctl name="RX2 Digital Volume" value="84" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="16" />
-		<ctl name="LINEOUT4 Volume" value="16" />
+		<ctl name="HPHL Volume" value="0" />
+		<ctl name="HPHR Volume" value="0" />
+		<ctl name="RX1 Digital Volume" value="50" />
+		<ctl name="RX2 Digital Volume" value="50" />
+		<ctl name="RX7 Digital Volume" value="79" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="speaker-and-headphones-bt-sco">
 		<path name="spk-ear" />
-		<ctl name="HPHL Volume" value="2" />
-		<ctl name="HPHR Volume" value="2" />
-		<ctl name="RX1 Digital Volume" value="84" />
-		<ctl name="RX2 Digital Volume" value="84" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="16" />
-		<ctl name="LINEOUT4 Volume" value="16" />
+		<ctl name="HPHL Volume" value="0" />
+		<ctl name="HPHR Volume" value="0" />
+		<ctl name="RX1 Digital Volume" value="50" />
+		<ctl name="RX2 Digital Volume" value="50" />
+		<ctl name="RX7 Digital Volume" value="79" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="speaker-and-bt-sco">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="16" />
-		<ctl name="LINEOUT4 Volume" value="16" />
+		<ctl name="RX7 Digital Volume" value="79" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="speaker-and-hdmi">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="16" />
-		<ctl name="LINEOUT4 Volume" value="16" />
+		<ctl name="RX7 Digital Volume" value="80" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="speaker-and-proxy">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="16" />
-		<ctl name="LINEOUT4 Volume" value="16" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="7" />
 	</path>
 
 	<path name="speaker-and-dock">
 		<path name="spk-lineout" />
 		<ctl name="RX3 Digital Volume" value="84" />
 		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT1 Volume" value="16" />
-		<ctl name="LINEOUT2 Volume" value="16" />
+		<ctl name="LINEOUT1 Volume" value="19" />
+		<ctl name="LINEOUT2 Volume" value="19" />
+		<ctl name="RX7 Digital Volume" value="81" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 	<!-- end of Play Scenario -->
 
@@ -883,79 +834,77 @@
 	<!-- Recording Scenario  -->
 	<path name="rec-main-mic">
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="106" />
+		<ctl name="DEC2 Volume" value="105" />
 	</path>
 
 	<path name="rec-sub-mic">
 		<path name="sub-mic" />
-		<ctl name="DEC4 Volume" value="105" />
-	</path>
-
-	<path name="rec-3rd-mic">
-		<path name="3rd-mic" />
-		<ctl name="DEC6 Volume" value="101" />
+		<ctl name="DEC4 Volume" value="91" />
 	</path>
 
 	<path name="rec-headset-mic">
 		<path name="ear-mic" />
-		<ctl name="ADC2 Volume" value="29" />
-		<ctl name="DEC5 Volume" value="87" />
+		<ctl name="ADC2 Volume" value="14" />
+		<ctl name="DEC5 Volume" value="72" />
+	</path>
+
+	<path name="rec-headset-mic-jam">
+		<path name="ear-mic" />
+		<ctl name="ADC2 Volume" value="19" />
+		<ctl name="DEC5 Volume" value="84" />
 	</path>
 
 	<path name="rec-stereo-mic">
+		<ctl name="Main Mic Delay" value="4" />
 		<path name="sub-main-mic" />
-		<ctl name="DEC2 Volume" value="105" />
-		<ctl name="DEC4 Volume" value="106" />
+		<ctl name="DEC2 Volume" value="90" />
+		<ctl name="DEC4 Volume" value="93" />
 	</path>
 
 	<path name="rec-high-gain-main-mic">
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="99" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 
 	<path name="rec-high-gain-sub-mic">
 		<path name="sub-mic" />
-		<ctl name="DEC4 Volume" value="99" />
+		<ctl name="DEC4 Volume" value="84" />
 	</path>
 
 	<path name="rec-high-gain-headset-mic">
 		<path name="ear-mic" />
-		<ctl name="ADC2 Volume" value="29" />
-		<ctl name="DEC5 Volume" value="99" />
+		<ctl name="ADC2 Volume" value="14" />
+		<ctl name="DEC5 Volume" value="84" />
 	</path>
 
 	<path name="rec-high-gain-stereo-mic">
 		<path name="sub-3rd-mic" />
-		<ctl name="DEC2 Volume" value="99" />
-		<ctl name="DEC4 Volume" value="99" />
+		<ctl name="DEC2 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="84" />
 	</path>
 
 	<path name="rec-NS-mic-interview">
-		<path name="sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="106" />
-		<ctl name="DEC2 Volume" value="106" />
-		<ctl name="DEC6 Volume" value="106" />
+		<ctl name="ES705 TX2 Enable" value="1" />
+		<path name="main-sub-mic" />
+		<ctl name="DEC2 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
+		<ctl name="Internal Route Config" value="7" />
 	</path>
 
 	<path name="rec-NS-mic-conversation">
-		<path name="sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="106" />
-		<ctl name="DEC2 Volume" value="106" />
-		<ctl name="DEC6 Volume" value="106" />
+		<ctl name="ES705 TX2 Enable" value="1" />
+		<path name="main-sub-mic" />
+		<ctl name="DEC2 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
+		<ctl name="Internal Route Config" value="8" />
 	</path>
 
 	<path name="rec-NS-mic-conference">
-		<path name="main-sub-3rd-mic-audience" />
-		<ctl name="DEC2 Volume" value="99" />
-		<ctl name="DEC4 Volume" value="99" />
-		<ctl name="DEC6 Volume" value="99" />
-	</path>
-
-	<path name="rec-NS-mic-meeting">
-		<path name="sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="105" />
-		<ctl name="DEC2 Volume" value="105" />
-		<ctl name="DEC6 Volume" value="105" />
+		<path name="main-sub-mic" />
+		<ctl name="DEC2 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="84" />
 	</path>
 	<!-- end of Recording Scenario -->
 
@@ -963,60 +912,60 @@
 	<!-- recognition Scenario -->
 	<path name="vr-main-mic">
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="105" />
+		<ctl name="DEC2 Volume" value="106" />
 	</path>
 
 	<path name="vr-sub-mic">
 		<path name="sub-mic" />
-		<ctl name="DEC4 Volume" value="104" />
+		<ctl name="DEC4 Volume" value="101" />
 	</path>
 
 	<path name="vr-headset-mic">
 		<path name="ear-mic" />
-		<ctl name="ADC2 Volume" value="27" />
-		<ctl name="DEC5 Volume" value="105" />
+		<ctl name="ADC2 Volume" value="12" />
+		<ctl name="DEC5 Volume" value="84" />
 	</path>
 
 	<path name="bargein1-main-mic">
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="105" />
+		<ctl name="DEC2 Volume" value="89" />
 	</path>
 
 	<path name="bargein1-sub-mic">
 		<path name="sub-mic" />
-		<ctl name="DEC4 Volume" value="105" />
+		<ctl name="DEC4 Volume" value="96" />
 	</path>
 
 	<path name="bargein1-earphone-mic">
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="99" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 
 	<path name="bargein1-headset-mic">
 		<path name="ear-mic" />
-		<ctl name="ADC2 Volume" value="27" />
-		<ctl name="DEC5 Volume" value="99" />
+		<ctl name="ADC2 Volume" value="12" />
+		<ctl name="DEC5 Volume" value="84" />
 	</path>
 
 	<path name="bargein2-main-mic">
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="104" />
+		<ctl name="DEC2 Volume" value="89" />
 	</path>
 
 	<path name="bargein2-sub-mic">
 		<path name="sub-mic" />
-		<ctl name="DEC4 Volume" value="89" />
+		<ctl name="DEC4 Volume" value="96" />
 	</path>
 
 	<path name="bargein2-earphone-mic">
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="99" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 
 	<path name="bargein2-headset-mic">
 		<path name="ear-mic" />
-		<ctl name="ADC2 Volume" value="27" />
-		<ctl name="DEC5 Volume" value="99" />
+		<ctl name="ADC2 Volume" value="12" />
+		<ctl name="DEC5 Volume" value="84" />
 	</path>
 
 	<path name="svoice-main-mic">
@@ -1026,15 +975,15 @@
 
 	<path name="svoice-NS-mic">
 		<path name="main-sub-mic" />
-		<ctl name="DEC2 Volume" value="105" />
-		<ctl name="DEC4 Volume" value="104" />
+		<ctl name="DEC2 Volume" value="110" />
+		<ctl name="DEC4 Volume" value="108" />
 	</path>
 
 	<path name="sdriving-NS-mic">
 		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="main-sub-3rd-mic" />
-		<ctl name="DEC2 Volume" value="98" />
-		<ctl name="DEC4 Volume" value="103" />
+		<ctl name="DEC2 Volume" value="110" />
+		<ctl name="DEC4 Volume" value="108" />
 		<ctl name="DEC6 Volume" value="106" />
 		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="13" />
@@ -1055,48 +1004,43 @@
 	<!-- Voice call Scenario -->
 	<!-- RX part -->
 	<path name="voice-call-handset">
+		<path name="rcv" />
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="voice-call-handset-extra-vol">
+		<path name="rcv" />
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="voice-call-handset-hac">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
+		<ctl name="ES705 RX2 Enable" value="1" />
 	</path>
 
 	<path name="voice-call-speaker">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="voice-call-speaker-extra-vol">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="voice-call-headset">
-		<path name="call-ear" />
-		<ctl name="RX1 MIX2 INP1" value="IIR1" />
-		<ctl name="RX2 MIX2 INP1" value="IIR1" />
-		<ctl name="HPHL Volume" value="14" />
-		<ctl name="HPHR Volume" value="14" />
+		<path name="ear" />
+		<ctl name="HPHL Volume" value="16" />
+		<ctl name="HPHR Volume" value="16" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
@@ -1111,38 +1055,31 @@
 
 	<path name="voice-call-handset-emergency">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="voice-call-speaker-emergency">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
-
 	<!-- TX part -->
 	<path name="voice-call-main-mic">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="4" />
 	</path>
 
 	<path name="voice-call-sub-mic">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="3" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="87" />
 	</path>
 
 	<path name="voice-call-headphone-mic">
@@ -1154,54 +1091,36 @@
 		<path name="call-ear-mic" />
 		<ctl name="ADC2 Volume" value="12" />
 		<ctl name="DEC5 Volume" value="84" />
-		<ctl name="IIR1 INP1 MUX" value="DEC5" />
-		<ctl name="IIR1 INP1 Volume" value="60" />
 	</path>
 
 	<path name="voice-call-NS-mic-handset">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="voice-call-NS-mic-speaker">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="1" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="87" />
 	</path>
 
 	<path name="voice-call-main-mic-emergency">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="4" />
 	</path>
 
 	<path name="voice-call-sub-mic-emergency">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="1" />
-	</path>
-
-	<path name="voice-call-mic-none">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="1" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="87" />
 	</path>
 	<!-- end of Voice call Scenario  -->
 
@@ -1238,38 +1157,35 @@
 	<!-- RX part -->
 	<path name="video-call-handset">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="video-call-handset-extra-vol">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="video-call-speaker">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="video-call-speaker-extra-vol">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="video-call-headset">
-		<path name="call-ear" />
-		<ctl name="HPHL Volume" value="14" />
-		<ctl name="HPHR Volume" value="14" />
+		<path name="ear" />
+		<ctl name="HPHL Volume" value="16" />
+		<ctl name="HPHR Volume" value="16" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
@@ -1285,27 +1201,22 @@
 	<!-- TX part -->
 	<path name="video-call-main-mic">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="4" />
+		<path name="call-main-sub-mic" />
+		<ctl name="DEC2 Volume" value="96" />
+		<ctl name="DEC4 Volume" value="96" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
+		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="video-call-sub-mic">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="3" />
 	</path>
 
 	<path name="video-call-headphone-mic">
 		<path name="call-main-mic" />
-		<ctl name="DEC2 Volume" value="93" />
+		<ctl name="DEC2 Volume" value="96" />
 	</path>
 
 	<path name="video-call-headset-mic">
@@ -1316,22 +1227,17 @@
 
 	<path name="video-call-NS-mic-handset">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<path name="call-main-sub-mic" />
+		<ctl name="DEC2 Volume" value="96" />
+		<ctl name="DEC4 Volume" value="96" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="video-call-NS-mic-speaker">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="1" />
 	</path>
 	<!-- end of Video call Scenario  -->
 
@@ -1340,47 +1246,43 @@
 	<!-- RX part -->
 	<path name="VoLTE-voice-handset">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-voice-handset-extra-vol">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-voice-handset-hac">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
+		<ctl name="ES705 RX2 Enable" value="1" />
 	</path>
 
 	<path name="VoLTE-voice-speaker">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="VoLTE-voice-speaker-extra-vol">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="VoLTE-voice-headset">
-		<path name="call-ear" />
-		<ctl name="RX1 MIX2 INP1" value="IIR1" />
-		<ctl name="RX2 MIX2 INP1" value="IIR1" />
-		<ctl name="HPHL Volume" value="14" />
-		<ctl name="HPHR Volume" value="14" />
+		<path name="ear" />
+		<ctl name="HPHL Volume" value="16" />
+		<ctl name="HPHR Volume" value="16" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
@@ -1395,22 +1297,17 @@
 	<!-- TX part -->
 	<path name="VoLTE-voice-main-mic">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="4" />
 	</path>
 
 	<path name="VoLTE-voice-sub-mic">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="3" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="87" />
 	</path>
 
 	<path name="VoLTE-voice-headphone-mic">
@@ -1422,28 +1319,21 @@
 		<path name="call-ear-mic" />
 		<ctl name="ADC2 Volume" value="12" />
 		<ctl name="DEC5 Volume" value="84" />
-		<ctl name="IIR1 INP1 MUX" value="DEC5" />
-		<ctl name="IIR1 INP1 Volume" value="60" />
 	</path>
 
 	<path name="VoLTE-voice-NS-mic-handset">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="VoLTE-voice-NS-mic-speaker">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="1" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="87" />
 	</path>
 	<!-- end of VoLTE Voice call Scenario  -->
 
@@ -1452,47 +1342,41 @@
 	<!-- RX part -->
 	<path name="VoLTE-voice-handset-wb">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-voice-handset-extra-vol-wb">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-voice-handset-hac-wb">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
+		<ctl name="ES705 RX2 Enable" value="1" />
 	</path>
 
 	<path name="VoLTE-voice-speaker-wb">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="VoLTE-voice-speaker-extra-vol-wb">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="VoLTE-voice-headset-wb">
-		<path name="call-ear" />
-		<ctl name="RX1 MIX2 INP1" value="IIR1" />
-		<ctl name="RX2 MIX2 INP1" value="IIR1" />
-		<ctl name="HPHL Volume" value="14" />
-		<ctl name="HPHR Volume" value="14" />
+		<path name="ear" />
+		<ctl name="HPHL Volume" value="15" />
+		<ctl name="HPHR Volume" value="15" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
@@ -1507,22 +1391,17 @@
 	<!-- TX part -->
 	<path name="VoLTE-voice-main-mic-wb">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="4" />
 	</path>
 
 	<path name="VoLTE-voice-sub-mic-wb">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="3" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-voice-headphone-mic-wb">
@@ -1534,28 +1413,21 @@
 		<path name="call-ear-mic" />
 		<ctl name="ADC2 Volume" value="12" />
 		<ctl name="DEC5 Volume" value="84" />
-		<ctl name="IIR1 INP1 MUX" value="DEC5" />
-		<ctl name="IIR1 INP1 Volume" value="60" />
 	</path>
 
 	<path name="VoLTE-voice-NS-mic-handset-wb">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="VoLTE-voice-NS-mic-speaker-wb">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="1" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 	<!-- end of VoLTE Voice call Wide-band Scenario  -->
 
@@ -1564,38 +1436,35 @@
 	<!-- RX part -->
 	<path name="VoLTE-video-handset">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-video-handset-extra-vol">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-video-speaker">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="VoLTE-video-speaker-extra-vol">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="VoLTE-video-headset">
-		<path name="call-ear" />
-		<ctl name="HPHL Volume" value="14" />
-		<ctl name="HPHR Volume" value="14" />
+		<path name="ear" />
+		<ctl name="HPHL Volume" value="16" />
+		<ctl name="HPHR Volume" value="16" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
@@ -1610,22 +1479,17 @@
 	<!-- TX part -->
 	<path name="VoLTE-video-main-mic">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="4" />
+		<path name="call-main-sub-mic" />
+		<ctl name="DEC2 Volume" value="96" />
+		<ctl name="DEC4 Volume" value="96" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
+		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="VoLTE-video-sub-mic">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="3" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="87" />
 	</path>
 
 	<path name="VoLTE-video-headphone-mic">
@@ -1641,22 +1505,17 @@
 
 	<path name="VoLTE-video-NS-mic-handset">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="VoLTE-video-NS-mic-speaker">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="1" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 	<!-- end of VoLTE Video call Scenario  -->
 
@@ -1665,38 +1524,35 @@
 	<!-- RX part -->
 	<path name="VoLTE-video-handset-wb">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-video-handset-extra-vol-wb">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="VoLTE-video-speaker-wb">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="VoLTE-video-speaker-extra-vol-wb">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="VoLTE-video-headset-wb">
-		<path name="call-ear" />
-		<ctl name="HPHL Volume" value="14" />
-		<ctl name="HPHR Volume" value="14" />
+		<path name="ear" />
+		<ctl name="HPHL Volume" value="15" />
+		<ctl name="HPHR Volume" value="15" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
@@ -1711,22 +1567,17 @@
 	<!-- TX part -->
 	<path name="VoLTE-video-main-mic-wb">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="4" />
+		<path name="call-main-sub-mic" />
+		<ctl name="DEC2 Volume" value="96" />
+		<ctl name="DEC4 Volume" value="96" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
+		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="VoLTE-video-sub-mic-wb">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="3" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="87" />
 	</path>
 
 	<path name="VoLTE-video-headphone-mic-wb">
@@ -1742,22 +1593,17 @@
 
 	<path name="VoLTE-video-NS-mic-handset-wb">
 		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-sub-3rd-mic" />
+		<path name="call-main-sub-mic" />
 		<ctl name="DEC2 Volume" value="93" />
 		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="2" />
 	</path>
 
 	<path name="VoLTE-video-NS-mic-speaker-wb">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-main-3rd-mic" />
-		<ctl name="DEC4 Volume" value="93" />
-		<ctl name="DEC2 Volume" value="93" />
-		<ctl name="DEC6 Volume" value="93" />
-		<ctl name="ES705-AP Tx Channels" value="Three" />
-		<ctl name="Internal Route Config" value="1" />
+		<path name="call-sub-main-mic" />
+		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 	<!-- end of VoLTE Video call Wide-band Scenario  -->
 
@@ -1766,21 +1612,21 @@
 	<!-- RX part -->
 	<path name="TTY-handset">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="TTY-handset-extra-vol">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
+		<path name="rcv" />
 		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="TTY-headset">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-ear" />
+		<path name="ear" />
 		<ctl name="HPHL Volume" value="20" />
 		<ctl name="HPHR Volume" value="20" />
 		<ctl name="RX1 Digital Volume" value="84" />
@@ -1789,7 +1635,7 @@
 
 	<path name="TTY-full">
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-ear" />
+		<path name="ear" />
 		<ctl name="HPHL Volume" value="20" />
 		<ctl name="HPHR Volume" value="20" />
 		<ctl name="RX1 Digital Volume" value="84" />
@@ -1841,16 +1687,15 @@
 
 	<path name="voip-speaker-comm">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="16" />
-		<ctl name="LINEOUT4 Volume" value="16" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="voip-headset-comm">
 		<path name="ear" />
 		<ctl name="HPHL DAC Switch" value="1" />
-		<ctl name="HPHL Volume" value="20" />
-		<ctl name="HPHR Volume" value="20" />
+		<ctl name="HPHL Volume" value="13" />
+		<ctl name="HPHR Volume" value="13" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
@@ -1863,9 +1708,8 @@
 
 	<path name="voip-speaker-others">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="16" />
-		<ctl name="LINEOUT4 Volume" value="16" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="voip-headset-others">
@@ -1885,9 +1729,8 @@
 
 	<path name="voip-speaker-chaton">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="7" />
 	</path>
 
 	<path name="voip-headset-chaton">
@@ -1900,21 +1743,20 @@
 
 	<path name="voip-handset-carrier">
 		<path name="rcv" />
-		<ctl name="EAR PA Gain" value="POS_6_DB" />
+		<ctl name="EAR PA Gain" value="POS_3_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="voip-speaker-carrier">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="8" />
 	</path>
 
 	<path name="voip-headset-carrier">
 		<path name="ear" />
-		<ctl name="HPHL Volume" value="14" />
-		<ctl name="HPHR Volume" value="14" />
+		<ctl name="HPHL Volume" value="13" />
+		<ctl name="HPHR Volume" value="13" />
 		<ctl name="RX1 Digital Volume" value="84" />
 		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
@@ -1927,9 +1769,8 @@
 
 	<path name="voip-speaker-fmc">
 		<path name="spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<ctl name="RX7 Digital Volume" value="85" />
+		<ctl name="SPK DRV Volume" value="7" />
 	</path>
 
 	<path name="voip-headset-fmc">
@@ -1943,13 +1784,11 @@
 
 	<!-- TX part -->
 	<path name="voip-main-mic-comm">
-		<ctl name="Main Mic Delay" value="4" /> 
 		<path name="main-mic" />
 		<ctl name="DEC2 Volume" value="90" />
 	</path>
 
 	<path name="voip-sub-mic-comm">
-		<ctl name="Sub Mic Delay" value="1" /> 
 		<path name="sub-mic" />
 		<ctl name="DEC4 Volume" value="90" />
 	</path>
@@ -1961,7 +1800,7 @@
 
 	<path name="voip-headset-mic-comm">
 		<path name="ear-mic" />
-		<ctl name="ADC2 Volume" value="12" />
+		<ctl name="ADC2 Volume" value="8" />
 		<ctl name="DEC5 Volume" value="84" />
 	</path>
 
@@ -2010,25 +1849,23 @@
 	</path>
 
 	<path name="voip-main-mic-carrier">
-	    <ctl name="Main Mic Delay" value="4" />
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="93" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 
 	<path name="voip-sub-mic-carrier">
-	    <ctl name="Sub Mic Delay" value="1" /> 
 		<path name="sub-mic" />
-		<ctl name="DEC4 Volume" value="90" />
+		<ctl name="DEC4 Volume" value="84" />
 	</path>
 
 	<path name="voip-headphone-mic-carrier">
 		<path name="main-mic" />
-		<ctl name="DEC2 Volume" value="93" />
+		<ctl name="DEC2 Volume" value="84" />
 	</path>
 
 	<path name="voip-headset-mic-carrier">
 		<path name="ear-mic" />
-		<ctl name="ADC2 Volume" value="12" />
+		<ctl name="ADC2 Volume" value="15" />
 		<ctl name="DEC5 Volume" value="84" />
 	</path>
 
@@ -2058,88 +1895,85 @@
 	<!-- Factory Scenario -->
 	<!-- RX part -->
 	<path name="loopback-handset-DSP">
+		<path name="rcv" />
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
 		<ctl name="EAR PA Gain" value="POS_3_DB" />
-		<ctl name="RX1 Digital Volume" value="85" />
+		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="loopback-handset-2mic-on-DSP">
+		<path name="rcv" />
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
 		<ctl name="EAR PA Gain" value="POS_3_DB" />
 		<ctl name="RX1 Digital Volume" value="82" />
 	</path>
 
 	<path name="loopback-speaker-DSP">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="75" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="81" />
+		<ctl name="SPK DRV Volume" value="8" />
+		<ctl name="COMP0 Switch" value="1" />
 	</path>
 
 	<path name="loopback-headset-DSP">
-		<path name="call-ear" />
+		<ctl name="ES705 RX2 Enable" value="1" />
+		<path name="ear" />
 		<ctl name="HPHL Volume" value="11" />
 		<ctl name="HPHR Volume" value="11" />
-		<ctl name="RX1 Digital Volume" value="89" />
-		<ctl name="RX2 Digital Volume" value="89" />
+		<ctl name="RX1 Digital Volume" value="77" />
+		<ctl name="RX2 Digital Volume" value="77" />
 	</path>
 
-	<path name="loopback-headset-audience-DSP">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-ear" />
-		<ctl name="HPHL Volume" value="11" />
-		<ctl name="HPHR Volume" value="11" />
-		<ctl name="RX1 Digital Volume" value="89" />
-		<ctl name="RX2 Digital Volume" value="89" />
+	<path name="loopback-headset-Bypass-DSP">
+		<path name="ear" />
+		<ctl name="HPHL Volume" value="20" />
+		<ctl name="HPHR Volume" value="20" />
+		<ctl name="RX1 Digital Volume" value="84" />
+		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
 
 	<path name="loopback-handset">
+		<path name="rcv" />
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
 		<ctl name="EAR PA Gain" value="POS_3_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="loopback-handset-2mic-on">
+		<path name="rcv" />
 		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-rcv" />
 		<ctl name="EAR PA Gain" value="POS_3_DB" />
 		<ctl name="RX1 Digital Volume" value="84" />
 	</path>
 
 	<path name="loopback-speaker">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-spk" />
-		<ctl name="RX5 Digital Volume" value="84" />
-		<ctl name="LINEOUT2 Volume" value="18" />
-		<ctl name="LINEOUT4 Volume" value="18" />
+		<path name="spk" />
+		<ctl name="RX7 Digital Volume" value="84" />
+		<ctl name="SPK DRV Volume" value="5" />
 	</path>
 
 	<path name="loopback-headset">
-		<path name="call-ear" />
+		<ctl name="ES705 RX2 Enable" value="1" />
+		<path name="ear" />
 		<ctl name="HPHL Volume" value="13" />
 		<ctl name="HPHR Volume" value="13" />
 		<ctl name="RX1 Digital Volume" value="81" />
 		<ctl name="RX2 Digital Volume" value="81" />
 	</path>
 
-	<path name="loopback-headset-audience">
-		<ctl name="ES705 RX2 Enable" value="1" />
-		<path name="call-ear" />
-		<ctl name="HPHL Volume" value="13" />
-		<ctl name="HPHR Volume" value="13" />
-		<ctl name="RX1 Digital Volume" value="81" />
-		<ctl name="RX2 Digital Volume" value="81" />
+	<path name="loopback-headset-Bypass">
+		<path name="ear" />
+		<ctl name="HPHL Volume" value="20" />
+		<ctl name="HPHR Volume" value="20" />
+		<ctl name="RX1 Digital Volume" value="84" />
+		<ctl name="RX2 Digital Volume" value="84" />
 	</path>
 
 	<!-- TX part -->
 	<path name="loopback-main-mic-DSP">
 		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-main-mic" />
-		<ctl name="DEC2 Volume" value="78" />
+		<ctl name="DEC2 Volume" value="89" />
 		<ctl name="ES705-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="17" />
 	</path>
@@ -2153,70 +1987,35 @@
 	</path>
 
 	<path name="loopback-sub-mic-DSP">
-		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-sub-mic" />
-		<ctl name="DEC4 Volume" value="70" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="18" />
+		<ctl name="DEC4 Volume" value="84" />
+	</path>
+
+	<path name="loopback-sub-mic-Bypass-DSP">
+		<path name="call-sub-mic" />
+		<ctl name="DEC4 Volume" value="55" />
 	</path>
 
 	<path name="loopback-3rd-mic-DSP">
-		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-3rd-mic" />
 		<ctl name="DEC6 Volume" value="84" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="18" />
 	</path>
 
 	<path name="loopback-headphone-mic-DSP">
+		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-main-mic" />
 		<ctl name="DEC2 Volume" value="74" />
-	</path>
-
-	<path name="loopback-headphone-sub-mic-DSP">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-mic" />
-		<ctl name="DEC4 Volume" value="70" />
 		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />
-	</path>
-
-	<path name="loopback-headphone-3rd-mic-DSP">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-3rd-mic" />
-		<ctl name="DEC6 Volume" value="84" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />
-	</path>
-
-	<path name="loopback-headphone-mic-audience-DSP">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-main-mic" />
-		<ctl name="DEC2 Volume" value="85" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />	
-	</path>
-
-	<path name="loopback-headphone-sub-mic-audience-DSP">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-mic" />
-		<ctl name="DEC4 Volume" value="85" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />
-	</path>
-
-	<path name="loopback-headphone-3rd-mic-audience-DSP">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-3rd-mic" />
-		<ctl name="DEC6 Volume" value="85" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />
+		<ctl name="Internal Route Config" value="0" />	
 	</path>
 
 	<path name="loopback-headset-mic-DSP">
+		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-ear-mic" />
 		<ctl name="ADC2 Volume" value="19" />
-		<ctl name="DEC5 Volume" value="70" />
+		<ctl name="DEC5 Volume" value="84" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
+		<ctl name="Internal Route Config" value="0" />
 	</path>
 
 	<path name="loopback-main-mic">
@@ -2236,69 +2035,35 @@
 	</path>
 
 	<path name="loopback-sub-mic">
-		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-sub-mic" />
 		<ctl name="DEC4 Volume" value="84" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="18" />
+	</path>
+
+	<path name="loopback-sub-mic-Bypass">
+		<path name="call-sub-mic" />
+		<ctl name="DEC4 Volume" value="55" />
 	</path>
 
 	<path name="loopback-3rd-mic">
-		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-3rd-mic" />
 		<ctl name="DEC6 Volume" value="84" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="18" />
 	</path>
 
 	<path name="loopback-headphone-mic">
-		<path name="call-main-mic" />
-		<ctl name="DEC2 Volume" value="74" />
-	</path>
-
-	<path name="loopback-headphone-sub-mic">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-mic" />
-		<ctl name="DEC4 Volume" value="84" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />
-	</path>
-
-	<path name="loopback-headphone-3rd-mic">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-3rd-mic" />
-		<ctl name="DEC6 Volume" value="84" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />
-	</path>
-
-	<path name="loopback-headphone-mic-audience">
 		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-main-mic" />
 		<ctl name="DEC2 Volume" value="74" />
 		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />	
+		<ctl name="Internal Route Config" value="0" />
 	</path>
 
-	<path name="loopback-headphone-sub-mic-audience">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-sub-mic" />
-		<ctl name="DEC4 Volume" value="84" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />
-	</path>
-
-	<path name="loopback-headphone-3rd-mic-audience">
-		<ctl name="ES705 TX1 Enable" value="1" />
-		<path name="call-3rd-mic" />
-		<ctl name="DEC6 Volume" value="84" />
-		<ctl name="ES705-AP Tx Channels" value="One" />
-		<ctl name="Internal Route Config" value="11" />
-	</path>
 	<path name="loopback-headset-mic">
+		<ctl name="ES705 TX1 Enable" value="1" />
 		<path name="call-ear-mic" />
 		<ctl name="ADC2 Volume" value="19" />
 		<ctl name="DEC5 Volume" value="84" />
+		<ctl name="ES705-AP Tx Channels" value="One" />
+		<ctl name="Internal Route Config" value="0" />
 	</path>
 
 	<!-- end of Factory Scenario -->
