@@ -48,3 +48,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # USB OTG interface
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
+
+#system prop for Bluetooth SOC type
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.bluetooth.soc=rome
+
+#system prop for Bluetooth SOC log
+PRODUCT_PROPERTY_OVERRIDES += \
+    enablebtsoclog=false
+
+
+
