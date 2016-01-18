@@ -19,12 +19,26 @@
 
 LOCAL_PATH := device/samsung/lentislte-common
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := lentislteskt,lentisltektt,lentisltelgt,lentislte
+BOARD_USES_QCOM_HARDWARE := true
+
+# Platform
+TARGET_BOARD_PLATFORM := apq8084
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno420
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := APQ8084
+TARGET_NO_BOOTLOADER := true
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := krait
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
 WLAN_MODULES:
 	mkdir -p $(KERNEL_MODULES_OUT)/qca_cld
 	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/qca_cld/qca_cld_wlan.ko
@@ -45,10 +59,6 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_HAS_QCA_BT_ROME := true
 
-
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := APQ8084
-
 # Camera
 BOARD_USES_LEGACY_MMAP := true
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -68,7 +78,8 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 HAVE_ADRENO_SOURCE := false
 USE_OPENGL_RENDERER := true
-
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
@@ -88,6 +99,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Media
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_USES_ION := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
