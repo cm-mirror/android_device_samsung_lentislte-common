@@ -28,8 +28,7 @@ vendor/lib/libaudcal.so
 
 # Camera
 bin/mm-qcamera-daemon
-lib/hw/camera.apq8084.so
-lib/hw/camera.vendor.apq8084.so
+lib/hw/camera.apq8084.so:lib/hw/camera.vendor.apq8084.so
 lib/libarcsoft_nighthawk.so
 lib/libliveframework.so
 lib/libmmcamera2_stats_algorithm.so
@@ -290,7 +289,7 @@ vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libWVStreamControlAPI_L1.so
-vendor/lib/libWVphoneAPI.so
+#vendor/lib/libWVphoneAPI.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/mediadrm/libwvdrmengine.so
@@ -377,15 +376,11 @@ etc/wifi/p2p_supplicant_overlay.conf
 etc/wifi/wpa_supplicant.conf
 etc/wifi/wpa_supplicant_overlay.conf
 etc/firmware/wlan/qca_cld/WCNSS_cfg.dat
-etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.usb.ini
+#etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.usb.ini
 etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 etc/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin
 etc/firmware/qwlan20.bin
 
-#hostapd
-etc/hostapd/hostapd.accept
-etc/hostapd/hostapd_default.conf
-etc/hostapd/hostapd.deny
 #firmware
 etc/firmware/a225p5_pm4.fw
 etc/firmware/a225_pfp.fw
