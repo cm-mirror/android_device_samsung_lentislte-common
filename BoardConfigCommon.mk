@@ -17,7 +17,7 @@
 # inherit from qcom-common
 -include device/samsung/qcom-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/samsung/trlte-common
+LOCAL_PATH := device/samsung/lentislte-common
 
 # Architecture
 TARGET_CPU_VARIANT := krait
@@ -55,10 +55,10 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # CMHW
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
-BOARD_HARDWARE_CLASS += device/samsung/trlte-common/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/cmhw
 
 # Display
-BOARD_EGL_CFG := device/samsung/trlte-common/configs/egl.cfg
+BOARD_EGL_CFG := device/samsung/lentislte-common/configs/egl.cfg
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
@@ -77,7 +77,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02600000 --tags_offset 0x02400000 --s
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := apq8084_sec_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/trlte
+TARGET_KERNEL_SOURCE := kernel/samsung/lentislte
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -111,7 +111,7 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_USES_QCOM_BSP := true
 
 # Recovery
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/trlte-common/recovery/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/lentislte-common/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -124,7 +124,7 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/trlte-common/sepolicy
+    device/samsung/lentislte-common/sepolicy
 
 # Time
 BOARD_USES_QC_TIME_SERVICES := true
