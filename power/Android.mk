@@ -1,7 +1,5 @@
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter lentislteskt lentisltekkt lentisltelgt lentislte,$(TARGET_DEVICE)),)
-
 # HAL module implemenation stored in
 # hw/<POWERS_HARDWARE_MODULE_ID>.<ro.hardware>.so
 include $(CLEAR_VARS)
@@ -40,4 +38,3 @@ LOCAL_MODULE := power.apq8084
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
-endif
