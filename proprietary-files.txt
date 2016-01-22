@@ -20,6 +20,7 @@ lib/libcsd-client.so
 lib/libdetectmodem.so
 lib/libmysound.so
 lib/libssaudio-client.so
+vendor/lib/libacdbmapper.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
