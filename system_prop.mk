@@ -20,7 +20,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdcp2.rx=tz \
     ro.qualcomm.cabl=1 \
     ro.secwvk=144 \
-    ro.sf.lcd_density=560 \
+    ro.sf.lcd_density=640 \
     ro.opengles.version=196608
 
 # GPS
@@ -32,7 +32,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.nfc.sec_hal=true
+    ro.nfc.port=I2C
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -45,13 +45,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sensors=1
 
+# Wlan 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true
+    wifi.interface=wlan0
+    wlan.driver.ath=0
+    wlan.driver.config=/data/misc/wifi/WCNSS_qcom_cfg.ini
+    ro.disableWifiApFirmwareReload=true
+
 # USB OTG interface
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
 
 #system prop for Bluetooth SOC type
 PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=rome
+    bt.max.hfpclient.connections=1 \
+    qcom.bluetooth.soc=rome \
+    enablebtsoclog=false \
+    qcom.bt.le_dev_pwr_class=1 \
+    ro.bluetooth.hfp.ver=1.6 \
+    ro.qualcomm.bluetooth.sap=false
 
 #system prop for Bluetooth SOC log
 PRODUCT_PROPERTY_OVERRIDES += \
