@@ -41,13 +41,13 @@ static struct light_state_t g_battery;
 static int g_attention = 0;
 
 char const*const RED_LED_FILE
-        = "/sys/class/leds/green/brightness";
+        = "/sys/class/leds/led_r/brightness";
 
 char const*const GREEN_LED_FILE
-        = "/sys/class/leds/blue/brightness";
+        = "/sys/class/leds/led_g/brightness";
 
 char const*const BLUE_LED_FILE
-        = "/sys/class/leds/white/brightness";
+        = "/sys/class/leds/led_b/brightness";
 
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
@@ -56,31 +56,31 @@ char const*const BUTTON_FILE
         = "/sys/class/sec/sec_touchkey/brightness";
 
 char const*const RED_BLINK_FILE
-        = "/sys/class/leds/green/blink";
+        = "/sys/class/leds/led_r/blink";
 
 char const*const GREEN_BLINK_FILE
-        = "/sys/class/leds/blue/blink";
+        = "/sys/class/leds/led_g/blink";
 
 char const*const BLUE_BLINK_FILE
-        = "/sys/class/leds/white/blink";
+        = "/sys/class/leds/led_b/blink";
 
 char const*const RED_DELAYON_FILE
-        = "/sys/class/leds/green/delay_on";
+        = "/sys/class/leds/led_r/delay_on";
 
 char const*const GREEN_DELAYON_FILE
-        = "/sys/class/leds/blue/delay_on";
+        = "/sys/class/leds/led_g/delay_on";
 
 char const*const BLUE_DELAYON_FILE
-        = "/sys/class/leds/white/delay_on";
+        = "/sys/class/leds/led_b/delay_on";
 
 char const*const RED_DELAYOFF_FILE
-        = "/sys/class/leds/green/delay_off";
+        = "/sys/class/leds/led_r/delay_off";
 
 char const*const GREEN_DELAYOFF_FILE
-        = "/sys/class/leds/blue/delay_off";
+        = "/sys/class/leds/led_g/delay_off";
 
 char const*const BLUE_DELAYOFF_FILE
-        = "/sys/class/leds/white/delay_off";
+        = "/sys/class/leds/led_b/delay_off";
 /**
  * device methods
  */
