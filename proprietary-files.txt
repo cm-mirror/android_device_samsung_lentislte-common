@@ -20,7 +20,6 @@ lib/libcsd-client.so
 lib/libdetectmodem.so
 lib/libmysound.so
 lib/libssaudio-client.so
-vendor/lib/libacdbmapper.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
@@ -272,12 +271,6 @@ etc/F16US_imx240_module_info.xml
 # ConsumerIR Hal
 lib/hw/consumerir.default.so
 
-# CPU
-bin/mpdecision
-bin/thermal-engine
-vendor/lib/libthermalclient.so
-vendor/lib/libthermalioctl.so
-
 # DRM
 bin/qseecomd
 lib/drm/libdrmwvmplugin.so
@@ -376,7 +369,7 @@ etc/wifi/p2p_supplicant_overlay.conf
 etc/wifi/wpa_supplicant.conf
 etc/wifi/wpa_supplicant_overlay.conf
 etc/firmware/wlan/qca_cld/WCNSS_cfg.dat
-#etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.usb.ini
+etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.usb.ini
 etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 etc/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin
 etc/firmware/qwlan20.bin
@@ -416,6 +409,7 @@ vendor/firmware/BT_FW_VER_rampatch_tlv_2.1.tlv
 
 # Nfc
 vendor/firmware/libpn547_fw.so
+
 #Adsp
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
