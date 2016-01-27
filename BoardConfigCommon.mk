@@ -68,8 +68,8 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # CMHW
-BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
-BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/cmhw
+BOARD_HARDWARE_CLASS += hardware/samsung/mkhw
+BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/mkhw
 
 # Display
 BOARD_EGL_CFG := device/samsung/lentislte-common/configs/egl.cfg
