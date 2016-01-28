@@ -67,7 +67,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
-# CMHW
+# MKHW
 BOARD_HARDWARE_CLASS += hardware/samsung/mkhw
 BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/mkhw
 
