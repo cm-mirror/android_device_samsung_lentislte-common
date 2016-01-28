@@ -40,13 +40,6 @@ TARGET_CPU_VARIANT := krait
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 ENABLE_CPUSETS := true
 
-WLAN_MODULES:
-	mkdir -p $(KERNEL_MODULES_OUT)/qca_cld
-	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/qca_cld/qca_cld_wlan.ko
-	ln -sf /system/lib/modules/qca_cld/qca_cld_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
-
-TARGET_KERNEL_MODULES += WLAN_MODULES
-
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_HWDEP_CAL := true
