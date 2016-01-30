@@ -73,13 +73,13 @@ BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/mkhw
 
 # Display
 BOARD_EGL_CFG := device/samsung/lentislte-common/configs/egl.cfg
-OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 HAVE_ADRENO_SOURCE := false
 USE_OPENGL_RENDERER := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+#TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
