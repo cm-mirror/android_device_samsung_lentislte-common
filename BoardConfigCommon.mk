@@ -20,7 +20,6 @@
 LOCAL_PATH := device/samsung/lentislte-common
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := lentislteskt,lentisltektt,lentisltelgt,lentislte
 BOARD_USES_QCOM_HARDWARE := true
 
 # Platform
@@ -179,4 +178,3 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
-TARGET_USES_BLOCK_BASED_OTA := false
