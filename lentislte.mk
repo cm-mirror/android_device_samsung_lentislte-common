@@ -36,9 +36,9 @@ TARGET_SCREEN_WIDTH := 1440
 PRODUCT_PROPERTY_OVERRIDES += \
    dalvik.vm.heapgrowthlimit=256m
 
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -231,6 +231,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.crda.sh \
+    init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
