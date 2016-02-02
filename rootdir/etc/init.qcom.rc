@@ -528,6 +528,13 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
+    # CPU Sets
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-1
+    write /dev/cpuctl/cpu.shares 1024
+
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 # reset_reason
@@ -618,11 +625,13 @@ on boot
     #Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
 
-
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
     #For bridgemgr daemon to inform the USB driver of the correct transport
     chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
+
+    chown radio radio /sys/class/net/rmnet_usb0/queues/rx-0/rps_cpus
+    chmod 0664 /sys/class/net/rmnet_usb0/queues/rx0/rps_cpus
 
     # For setting tcp delayed ack
     chown system system /sys/kernel/ipv4/tcp_delack_seg
@@ -1232,6 +1241,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
     user camera
     group camera system inet input graphics radio sdcard_rw sdcard_r media_rw shell log
+    writepid /dev/cpuset/system-background/tasks
 
 # there seems to be a large philosophical discussion about this daemon.  The consensus seems to
 # be to not enable it http://forum.xda-developers.com/showthread.php?t=1755180 but it's here
