@@ -16,4 +16,7 @@
      for different hardware or product builds. -->
 <resources>
     <bool name="back_camera_restart_preview_onPictureTaken">true</bool>
+    <!-- Force use a specific preview-size
+         Example: 1920x1080 -->
+    <string name="preview_size_for_photo">1920x1080</string>
 </resources>
