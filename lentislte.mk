@@ -137,7 +137,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd \
-    fingerprint.msm8974 \
+    fingerprint.apq8084 \
     ValidityService
 
 
