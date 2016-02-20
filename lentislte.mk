@@ -132,21 +132,16 @@ PRODUCT_PACKAGES += \
 
 # Doze service
 PRODUCT_PACKAGES += \
-   SamsungDoze
+    SamsungDoze
+
+PRODUCT_PACKAGES += \
+   libhealthd.default
 
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd \
     fingerprint.apq8084 \
     ValidityService
-
-
-PRODUCT_PACKAGES += \
-   libhealthd.default
-
-# Fingerprint sensor
-PRODUCT_PACKAGES += \
-    fingerprint.apq8084
 
 PRODUCT_PROPERTY_OVERRIDES += \
     fingerprint_enabled=1
