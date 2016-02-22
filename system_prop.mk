@@ -71,5 +71,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     enablebtsoclog=false
 
-
+#Maintainer
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.mk.maintainer=CallMESuper
 
