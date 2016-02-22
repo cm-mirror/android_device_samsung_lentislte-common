@@ -243,8 +243,7 @@ PRODUCT_PACKAGES += \
 
 # Samsung symbols
 PRODUCT_PACKAGES += \
-    libsamsung_symbols \
-    libshim_qcopt
+    libsamsung_symbols
 
 # Torch
 PRODUCT_PACKAGES += \
