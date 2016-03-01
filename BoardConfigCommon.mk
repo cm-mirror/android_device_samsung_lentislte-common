@@ -86,7 +86,6 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02600000 --tags_offset 0x02400000 --second_offset 0x00f00000
 TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CONFIG := cm_lentislte_defconfig
 TARGET_KERNEL_VARIANT_CONFIG  := dummy_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/lentislte
 
