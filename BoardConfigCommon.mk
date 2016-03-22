@@ -87,7 +87,12 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02600000 --tags_offset 0x02400000 --second_offset 0x00f00000
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_VARIANT_CONFIG  := dummy_defconfig
+
+ifneq ($(filter lentislte,$(TARGET_DEVICE)),)
 TARGET_KERNEL_SOURCE := kernel/samsung/lentislte
+else
+TARGET_KERNEL_SOURCE := kernel/samsung/kccat6
+endif
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
