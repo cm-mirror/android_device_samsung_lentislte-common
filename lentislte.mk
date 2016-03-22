@@ -26,8 +26,9 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 -include $(LOCAL_PATH)/system_prop.mk
 
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := 560dpi
+PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2560
@@ -239,7 +240,9 @@ PRODUCT_PACKAGES += \
 
 # Samsung symbols
 PRODUCT_PACKAGES += \
-    libsamsung_symbols
+    libshim_ril \
+    libshim_rmt \
+    libshim_qcopt
 
 # Torch
 PRODUCT_PACKAGES += \
