@@ -20,7 +20,6 @@ lib/libcsd-client.so
 lib/libdetectmodem.so
 lib/libmysound.so
 lib/libssaudio-client.so
-vendor/lib/libacdbmapper.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
@@ -28,8 +27,7 @@ vendor/lib/libaudcal.so
 
 # Camera
 bin/mm-qcamera-daemon
-lib/hw/camera.apq8084.so
-lib/hw/camera.vendor.apq8084.so
+lib/hw/camera.apq8084.so:lib/hw/camera.vendor.apq8084.so
 lib/libarcsoft_nighthawk.so
 lib/libliveframework.so
 lib/libmmcamera2_stats_algorithm.so
@@ -286,7 +284,7 @@ vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
-vendor/lib/libWVphoneAPI.so
+#ndor/lib/libWVphoneAPI.so
 vendor/lib/libWVStreamControlAPI_L1.so
 
 # Fingerprint
@@ -313,12 +311,12 @@ vendor/lib/liblocationservice.so
 vendor/lib/libulp2.so
 
 # Graphics
-vendor/lib/egl/eglsubAndroid.so
+#vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/egl/libQTapGLES.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libQTapGLES.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/egl/libq3dtools_esx.so
 vendor/lib/libadreno_utils.so
@@ -326,7 +324,7 @@ vendor/lib/libbccQTI.so
 vendor/lib/libC2D2.so
 vendor/lib/libc2d30-a3xx.so
 vendor/lib/libc2d30-a4xx.so
-vendor/lib/libc2d30.so
+#vendor/lib/libc2d30.so
 vendor/lib/libCB.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-glnext.so
@@ -336,7 +334,6 @@ vendor/lib/libllvm-qcom.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/librs_adreno.so
 vendor/lib/libRSDriver_adreno.so
-vendor/lib/libscale.so
 
 # Graphics firmware
 etc/firmware/a420_pfp.fw
