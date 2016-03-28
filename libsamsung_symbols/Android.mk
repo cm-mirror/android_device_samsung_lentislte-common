@@ -29,19 +29,6 @@ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 include $(BUILD_SHARED_LIBRARY)
 
 
-# libqc-opt.so symbols
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES := \
-    icu53.cpp
-
-LOCAL_SHARED_LIBRARIES := libicuuc libicui18n
-
-LOCAL_MODULE := libshim_qcopt
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-include $(BUILD_SHARED_LIBRARY)
-
 # rmt_storage symbols
 include $(CLEAR_VARS)
 
