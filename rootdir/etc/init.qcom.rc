@@ -533,7 +533,13 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
-    # CPU Sets
+    # Enable msm hotplug for boot
+    write /sys/module/msm_hotplug/msm_enabled 1
+    write /sys/module/msm_hotplug/cpu_boosted 2
+    write /sys/module/msm_hotplug/max_cpu_online 3
+    write /sys/module/msm_hotplug/min_cpu_online 1
+   
+ # CPU Sets
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
     write /dev/cpuset/background/cpus 0
@@ -1553,6 +1559,12 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
     # Post boot services
     start qcom-post_boot
+
+    # Enable msm hotplug for boot
+    write /sys/module/msm_hotplug/msm_enabled 1
+    write /sys/module/msm_hotplug/cpu_boosted 2
+    write /sys/module/msm_hotplug/max_cpu_online 3
+    write /sys/module/msm_hotplug/min_cpu_online 1
 
 service hostapd /system/bin/hostapd -dddd /data/misc/wifi/hostapd.conf
     class late_start
