@@ -66,7 +66,6 @@ BOARD_HARDWARE_CLASS += hardware/samsung/mkhw
 BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/mkhw
 
 # Display
-BOARD_EGL_CFG := device/samsung/lentislte-common/configs/egl.cfg
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 HAVE_ADRENO_SOURCE := false
