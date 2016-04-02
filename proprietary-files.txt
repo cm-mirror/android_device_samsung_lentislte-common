@@ -17,11 +17,12 @@ etc/Hdmi_cal.acdb
 etc/Headset_cal.acdb
 etc/Speaker_cal.acdb
 lib/libcsd-client.so
-lib/libdetectmodem.so
+vendor/lib/libdetectmodem.so
 lib/libmysound.so
 lib/libssaudio-client.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
+vendor/lib/libacdbmapper.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
 
@@ -273,18 +274,18 @@ lib/hw/consumerir.default.so
 
 # DRM
 bin/qseecomd
-lib/drm/libdrmwvmplugin.so
+vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/libdrmdecrypt.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
-vendor/lib/liboemcrypto.so
+#vendor/lib/liboemcrypto.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
-#ndor/lib/libWVphoneAPI.so
+vendor/lib/libWVphoneAPI.so
 vendor/lib/libWVStreamControlAPI_L1.so
 
 # Fingerprint
@@ -311,9 +312,9 @@ vendor/lib/liblocationservice.so
 vendor/lib/libulp2.so
 
 # Graphics
-#vendor/lib/egl/eglsubAndroid.so
+vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/eglSubDriverAndroid.so
-vendor/lib/egl/libQTapGLES.so
+#vendor/lib/egl/libQTapGLES.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
@@ -324,7 +325,7 @@ vendor/lib/libbccQTI.so
 vendor/lib/libC2D2.so
 vendor/lib/libc2d30-a3xx.so
 vendor/lib/libc2d30-a4xx.so
-#vendor/lib/libc2d30.so
+vendor/lib/libc2d30.so
 vendor/lib/libCB.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-glnext.so
@@ -344,32 +345,34 @@ bin/irsc_util
 etc/sec_config
 
 # Keystore stuffs.
-vendor/lib/lib-sec-disp.so
-vendor/lib/libSecureUILib.so
-vendor/lib/libStDrvInt.so
-vendor/lib/libsecureui.so
-vendor/lib/libsecureui_svcsock.so
-vendor/lib/libsecureuisvc_jni.so
+#vendor/lib/lib-sec-disp.so
+#vendor/lib/libSecureUILib.so
+#vendor/lib/libStDrvInt.so
+#vendor/lib/libsecureui.so
+#vendor/lib/libsecureui_svcsock.so
+#vendor/lib/libsecureuisvc_jni.so
 
 # Media
 vendor/lib/libDivxDrm.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
+vendor/lib/libmmparser.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxWmaDec.so
-vendor/lib/libSHIMDivxDrm.so
+#vendor/lib/libSHIMDivxDrm.so
+vendor/lib/libExtendedExtractor.so
 
 # Perf
 vendor/lib/libqc-opt.so
 
 # Postprocessing
-vendor/lib/libdisp-aba.so
--vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
+#vendor/lib/libdisp-aba.so
+#-vendor/lib/libmm-abl.so
+#vendor/lib/libmm-abl-oem.so
 
 # Sensors
 lib/hw/sensors.apq8084.so
@@ -400,20 +403,19 @@ etc/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin
 etc/firmware/qwlan20.bin
 
 #firmware
-etc/firmware/a225p5_pm4.fw
-etc/firmware/a225_pfp.fw
-etc/firmware/a225_pm4.fw
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
-etc/firmware/a420_pfp.fw
-etc/firmware/a420_pm4.fw
+#etc/firmware/a225p5_pm4.fw
+#etc/firmware/a225_pfp.fw
+#etc/firmware/a225_pm4.fw
+#etc/firmware/a300_pfp.fw
+#etc/firmware/a300_pm4.fw
+#etc/firmware/a330_pfp.fw
+#etc/firmware/a330_pm4.fw
+#etc/firmware/a420_pfp.fw
+#etc/firmware/a420_pm4.fw
 etc/firmware/bdwlan20.bin
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
 etc/firmware/otp20.bin
-etc/firmware/qwlan20.bin
 etc/firmware/utf20.bin
 etc/firmware/utfbd20.bin
 
