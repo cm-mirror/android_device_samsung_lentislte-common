@@ -17,7 +17,7 @@
 # Inherit from qcom-common
 -include device/samsung/qcom-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/samsung/lentislte-common
+LOCAL_PATH := device/samsung/kccat6-common
 
 # Assert
 BOARD_USES_QCOM_HARDWARE := true
@@ -63,7 +63,7 @@ BOARD_CHARGING_CMDLINE_VALUE := "true"
 
 # MKHW
 BOARD_HARDWARE_CLASS += hardware/samsung/mkhw
-BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/mkhw
+BOARD_HARDWARE_CLASS += device/samsung/kccat6-common/mkhw
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -138,7 +138,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/lentislte-common/sepolicy
+    device/samsung/kccat6-common/sepolicy
 
 # Time
 BOARD_USES_QC_TIME_SERVICES := true
@@ -160,6 +160,8 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_MODULE_NAME := "wlan"
+ifneq ($(filter lentislte,$(TARGET_DEVICE)),)
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+endif
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
