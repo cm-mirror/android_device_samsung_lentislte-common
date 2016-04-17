@@ -17,7 +17,7 @@
 # Inherit from qcom-common
 -include device/samsung/qcom-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/samsung/kccat6-common
+LOCAL_PATH := device/samsung/lentislte-common
 
 # Assert
 BOARD_USES_QCOM_HARDWARE := true
@@ -63,7 +63,7 @@ BOARD_CHARGING_CMDLINE_VALUE := "true"
 
 # MKHW
 BOARD_HARDWARE_CLASS += hardware/samsung/mkhw
-BOARD_HARDWARE_CLASS += device/samsung/kccat6-common/mkhw
+BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/mkhw
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -138,7 +138,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/kccat6-common/sepolicy
+    device/samsung/lentislte-common/sepolicy
 
 # Time
 BOARD_USES_QC_TIME_SERVICES := true

@@ -73,10 +73,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Wlan 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.timed.enable=true
-    wifi.interface=wlan0
-    wlan.driver.ath=0
-    wlan.driver.config=/data/misc/wifi/WCNSS_qcom_cfg.ini
+    persist.timed.enable=true \
+    wifi.interface=wlan0 \
+    wlan.driver.ath=0 \
+    wlan.driver.config=/data/misc/wifi/WCNSS_qcom_cfg.ini \
     ro.disableWifiApFirmwareReload=true
 
 # USB OTG interface
