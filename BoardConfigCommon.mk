@@ -62,8 +62,8 @@ BOARD_CHARGING_CMDLINE_NAME := "androidboot.bootchg"
 BOARD_CHARGING_CMDLINE_VALUE := "true"
 
 # MKHW
-BOARD_HARDWARE_CLASS += hardware/samsung/mkhw
-BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/mkhw
+BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/lentislte-common/cmhw
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024

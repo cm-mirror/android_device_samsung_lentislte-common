@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.mokee.hardware;
+package org.cyanogenmod.hardware;
 
 import java.io.File;
 
-import org.mokee.hardware.util.FileUtils;
+import org.cyanogenmod.hardware.util.FileUtils;
 
 /*
  * Disable capacitive keys
